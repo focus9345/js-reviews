@@ -1,0 +1,17 @@
+{
+    "name": "javascript-review",
+    "version": "1.0.0",
+    "description": "Typescript and Jest of basic principles of JS datastructures and design patterns ",
+    "main": "sum.js",
+    "scripts": {
+      "test": "npx jest sum.text.js",
+      "start": "node sum.js"
+    },
+    "author": "Joshua Connor",
+    "license": "ISC",
+    "devDependencies": {
+      "jest": "^26.6.3",
+      "node": "18.20.5",
+      "babel-jest": "29.7.0"
+        }
+  }
