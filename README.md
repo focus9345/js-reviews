@@ -7,15 +7,15 @@ You will need:
 - typescript v5.6.3
 
 ## Running files CLI
-Compile the TS file
+Compile the TS file: output will run everything fair warning
 ```
-tsc data-structures/array.ts
+tsc output.ts
 ```
 Run the js file
 ```
-node data-structures/array.js
+node output.js
 ```
-Test the js file
+Test the js file (this will test specific files)
 ```
 npx jest data-structures/array.test.js
 ```
