@@ -10,16 +10,30 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const array_1 = require("./data-structures/array");
 function logToConsole(fn, fnname, input) {
+    const inputType = typeof input;
     console.log('##############################################');
     console.group('Output Function');
     console.log(fnname);
+    // the sarting place of the input
     console.log('Input: ' + input);
+    // Call the function
     fn(input);
-    console.info('Info: ' + input);
-    console.dir('Dir: ' + input);
-    console.debug('Debug: ' + input);
-    console.table('Table: ' + input);
-    console.trace('Trace: ' + input);
+    // switch console log based on input type
+    if (input !== null) {
+        switch (inputType) {
+            case 'undefined':
+                console.debug(input);
+                break;
+            case 'object':
+                console.table('Table: ' + input);
+            case 'function':
+            default:
+                console.log('Output: ' + input);
+        }
+    }
+    else {
+        console.trace(input);
+    }
     console.groupEnd();
 }
 // Main run functions
