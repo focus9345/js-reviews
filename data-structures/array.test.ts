@@ -7,7 +7,7 @@
  */
 
 import {describe, expect, test} from '@jest/globals';
-import reverseString from './array';
+import { reverseString } from './array';
 
 describe('reverseString module', () => {
     test('reverses the string "hello" to equal "olleh"', () => {

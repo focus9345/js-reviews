@@ -3,9 +3,9 @@
  * @description function to reverse a string in place
  * @author Joshua Connor
  * @version 0.0.1
- * @param {string[]} s
- * @return {void} modify in-place 
- * @type {function}
+ * @param {string[]} s - the input array
+ * @return {void} changes the input array in place
+ * @type {function} 
  * @exports reverseString
  */
 
@@ -23,8 +23,4 @@ const reverseString = (s: string[]): void => {
     }
 }
 // export the function
-export default reverseString;
-
-// output the function
-let s = ["h", "e", "l", "l", "o"];
-console.log(reverseString(s));
+export { reverseString };
