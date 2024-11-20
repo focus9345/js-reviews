@@ -27,4 +27,4 @@ export default reverseString;
 
 // output the function
 let s = ["h", "e", "l", "l", "o"];
-console.log(s);
+console.log(reverseString(s));

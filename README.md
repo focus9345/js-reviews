@@ -6,6 +6,20 @@ You will need:
 - node.js v22.6.0
 - typescript v5.6.3
 
+## Running files CLI
+Compile the TS file
+```
+tsc data-structures/array.ts
+```
+Run the js file
+```
+node data-structures/array.js
+```
+Test the js file
+```
+npx jest data-structures/array.test.js
+```
+
 ## Javascript Data Structures
 - Array
    - Sliding Window
