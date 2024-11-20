@@ -1,6 +1,7 @@
 # js-reviews
 A practice and review of js data-structures and design patterns.
 This practice set will explore Functional and Object Oriented sides of javascript as well to impliment typescript and code testing using jest.
+Files are commented using @use JSDoc as a best practice
 You will need: 
 - node.js v22.6.0
 - typescript v5.6.3
