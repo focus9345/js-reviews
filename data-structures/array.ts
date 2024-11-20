@@ -1,5 +1,6 @@
 /**
  * @name reverseString
+ * @description function to reverse a string in place
  * @author Joshua Connor
  * @version 0.0.1
  * @param {string[]} s

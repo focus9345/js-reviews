@@ -1,4 +1,5 @@
 /**
+ * @description Jest test for reverseString function
  * @author Joshua Connor
  * @version 0.0.1
  * @requires array.ts
