@@ -13,7 +13,7 @@ function logToConsole(fn, fnname, input) {
     const inputType = typeof input;
     console.log('##############################################');
     console.group('Output Function');
-    console.log(fnname);
+    console.log(inputType + " : " + fnname);
     // the sarting place of the input
     console.log('Input: ' + input);
     // Call the function
