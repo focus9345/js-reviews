@@ -8,8 +8,10 @@
  * @exports reverseString
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.kRadiusSubarrayAverage = exports.reverseString = void 0;
+exports.maxConsecutiveOnes = exports.maxAverageSubArray = exports.kRadiusSubarrayAverage = exports.reverseString = void 0;
 // function to reverse a string in place
+// leetcode problem 344
+// https://leetcode.com/problems/reverse-string/
 const reverseString = (s) => {
     let left = 0;
     let right = s.length - 1;
@@ -40,3 +42,42 @@ const kRadiusSubarrayAverage = (nums, k) => {
     return max / k;
 };
 exports.kRadiusSubarrayAverage = kRadiusSubarrayAverage;
+// function max average subarray
+// leetcode problem 643
+// https://leetcode.com/problems/maximum-average-subarray-i/
+const maxAverageSubArray = (nums, k) => {
+    let sum = new Array(nums.length);
+    let result = 0.5; // init the average
+    sum[0] = nums[0]; // start the sums with the first index of nums
+    for (let i = 1; i < nums.length; i++) {
+        // create the sums array
+        sum[i] = sum[i - 1] + nums[i];
+    }
+    result = sum[k - 1] * 1.0 / k; // find the starting average
+    for (let i = k; i < nums.length; i++) {
+        //compare and store the max average
+        result = Math.max(result, (sum[i] - sum[i - k]) * 1.0 / k);
+    }
+    return result;
+};
+exports.maxAverageSubArray = maxAverageSubArray;
+// function max consecutive ones
+// Leetcode problem 1004
+// https://leetcode.com/problems/max-consecutive-ones-iii/
+const maxConsecutiveOnes = (nums, k) => {
+    let left = 0, curr = 0, ans = 0;
+    for (let right = 0; right < nums.length; right++) {
+        if (nums[right] == 0) {
+            curr++;
+        }
+        while (curr > k) {
+            if (nums[left] == 0) {
+                curr -= 1;
+            }
+            left++;
+        }
+        ans = Math.max(ans, right - left + 1);
+    }
+    return ans;
+};
+exports.maxConsecutiveOnes = maxConsecutiveOnes;

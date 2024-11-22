@@ -7,7 +7,7 @@
  */
 
 import {describe, expect, test} from '@jest/globals';
-import { reverseString, kRadiusSubarrayAverage } from './array';
+import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes } from './array';
 
 // test the reverseString function
 describe('reverseString module', () => {
@@ -24,5 +24,23 @@ describe('kRadiusSubarrayAverage module', () => {
         let nums = [1, 12, -5, -6, 50, 3];
         let k = 4;
         expect(kRadiusSubarrayAverage(nums, k)).toBe(12.75);
+    });
+});
+
+// test the maxAverageSubArray function
+describe('maxAverageSubArray module', () => {
+    test('returns the maximum average of a subarray of length k', () => {
+        let nums = [1, 12, -5, -6, 50, 3, -30, 25];
+        let k = 4;
+        expect(maxAverageSubArray(nums, k)).toBe(12.75);
+    });
+});
+
+// test the maxConsecutiveOnes function
+describe('maxConsecutiveOnes module', () => {
+    test('returns the maximum number of consecutive ones after flipping k zeros', () => {
+        let nums = [1,1,1,0,0,0,1,1,1,1,0];
+        let k = 2;
+        expect(maxConsecutiveOnes(nums, k)).toBe(6);
     });
 });

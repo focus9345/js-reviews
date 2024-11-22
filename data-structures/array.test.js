@@ -25,3 +25,19 @@ const array_1 = require("./array");
         (0, globals_1.expect)((0, array_1.kRadiusSubarrayAverage)(nums, k)).toBe(12.75);
     });
 });
+// test the maxAverageSubArray function
+(0, globals_1.describe)('maxAverageSubArray module', () => {
+    (0, globals_1.test)('returns the maximum average of a subarray of length k', () => {
+        let nums = [1, 12, -5, -6, 50, 3, -30, 25];
+        let k = 4;
+        (0, globals_1.expect)((0, array_1.maxAverageSubArray)(nums, k)).toBe(12.75);
+    });
+});
+// test the maxConsecutiveOnes function
+(0, globals_1.describe)('maxConsecutiveOnes module', () => {
+    (0, globals_1.test)('returns the maximum number of consecutive ones after flipping k zeros', () => {
+        let nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0];
+        let k = 2;
+        (0, globals_1.expect)((0, array_1.maxConsecutiveOnes)(nums, k)).toBe(6);
+    });
+});
