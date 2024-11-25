@@ -7,7 +7,7 @@
  */
 
 import {describe, expect, test} from '@jest/globals';
-import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes } from './array';
+import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek } from './array';
 
 // test the reverseString function
 describe('reverseString module', () => {
@@ -42,5 +42,37 @@ describe('maxConsecutiveOnes module', () => {
         let nums = [1,1,1,0,0,0,1,1,1,1,0];
         let k = 2;
         expect(maxConsecutiveOnes(nums, k)).toBe(6);
+    });
+});
+
+// test the minStartValue function
+describe('minStartValue module', () => {
+    test('returns the minimum start value to reach the target', () => {
+        let nums = [-3, 2, -3, 4, 2];
+        expect(minStartValue(nums)).toBe(5);
+    });
+});
+
+// test the checkPalindrome function
+describe('checkPalindrome module', () => {
+    test('returns true if the string is a palindrome', () => {
+        let s = "racecar";
+        expect(checkPalindrome(s)).toBe(true);
+    });
+});
+
+// test the dayOfTheWeek function
+describe('dayOfTheWeek module', () => {
+    it('returns day of the week in that month of that year, case 1, returns Saturday', () => {
+        let day = 31;
+        let month = 8;
+        let year = 2019;
+        expect(dayOfTheWeek(day, month, year)).toEqual("Saturday");
+    });
+    it('returns day of the week in that month of that year, case 2, returns Sunday', () => {
+        let day = 18;
+        let month = 7;
+        let year = 1999;
+        expect(dayOfTheWeek(day, month, year)).toEqual("Sunday");
     });
 });

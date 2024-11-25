@@ -75,7 +75,45 @@ const maxConsecutiveOnes = (nums: number[], k: number): number => {
     }
     return ans;
 }
+// function min start value
+//  Leetcode problem 1413
+//  https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/
+const minStartValue = (nums: number[]): number => {
+    let min = 0;
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+        min = Math.min(min, sum);
+    }
+    return 1 - min;
+}
+// function check palindrome
+// Leetcode problem 125
+// https://leetcode.com/problems/valid-palindrome/
+const checkPalindrome = (s: string): boolean => {
+    let left = 0;
+    let right = s.length - 1;
+    while (left < right) {
+        if (s[left] !== s[right]) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+// function answer queries Day of the week
+// Leetcode problem 1185
+// https://leetcode.com/problems/day-of-the-week/
+const dayOfTheWeek = (day: number, month: number, year: number): string => {
+    const currentDate: Date = new Date(year, month - 1, day);
+    const days: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return days[currentDate.getDay()];
+}
+
+
+
 
 
 // export all the functions
-export { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes};
+export { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek};

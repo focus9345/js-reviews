@@ -41,3 +41,32 @@ const array_1 = require("./array");
         (0, globals_1.expect)((0, array_1.maxConsecutiveOnes)(nums, k)).toBe(6);
     });
 });
+// test the minStartValue function
+(0, globals_1.describe)('minStartValue module', () => {
+    (0, globals_1.test)('returns the minimum start value to reach the target', () => {
+        let nums = [-3, 2, -3, 4, 2];
+        (0, globals_1.expect)((0, array_1.minStartValue)(nums)).toBe(5);
+    });
+});
+// test the checkPalindrome function
+(0, globals_1.describe)('checkPalindrome module', () => {
+    (0, globals_1.test)('returns true if the string is a palindrome', () => {
+        let s = "racecar";
+        (0, globals_1.expect)((0, array_1.checkPalindrome)(s)).toBe(true);
+    });
+});
+// test the dayOfTheWeek function
+(0, globals_1.describe)('dayOfTheWeek module', () => {
+    it('returns day of the week in that month of that year, case 1, returns Saturday', () => {
+        let day = 31;
+        let month = 8;
+        let year = 2019;
+        (0, globals_1.expect)((0, array_1.dayOfTheWeek)(day, month, year)).toEqual("Saturday");
+    });
+    it('returns day of the week in that month of that year, case 2, returns Sunday', () => {
+        let day = 18;
+        let month = 7;
+        let year = 1999;
+        (0, globals_1.expect)((0, array_1.dayOfTheWeek)(day, month, year)).toEqual("Sunday");
+    });
+});
