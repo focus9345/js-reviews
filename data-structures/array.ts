@@ -71,7 +71,7 @@ const maxConsecutiveOnes = (nums: number[], k: number): number => {
             }
             left++;
         }
-        ans = Math.max( ans, right - left + 1);
+        ans = Math.max(ans, right - left + 1);
     }
     return ans;
 }
@@ -110,10 +110,94 @@ const dayOfTheWeek = (day: number, month: number, year: number): string => {
     const days: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return days[currentDate.getDay()];
 }
+// function changes roman numerals to an integer
+// Leetcode problem 13
+// https://leetcode.com/problems/roman-to-integer/
+const romanToInt = (s: string): number => {
+    let result = 0;
+    const roman = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 };
 
+    for (let i:number = 0; i < s.length; i++) {
+        if (s[i] === 'I' && (s[i + 1] === 'V')) {
+            result += 4;
+            i++;
+        } else if (s[i] === 'I' && (s[i + 1] === 'X')) {
+            result += 9;
+            i++;
+        } else if (s[i] === 'X' && (s[i + 1] === 'L')) {
+            result += 40;
+            i++;
 
+        } else if (s[i] === 'X' && (s[i + 1] === 'C')) {
+            result += 90;
+            i++;
 
+        } else if (s[i] === 'C' && (s[i + 1] === 'D')) {
+            result += 400;
+            i++;
+
+        } else if (s[i] === 'C' && (s[i + 1] === 'M')) {
+            result += 900;
+            i++;
+        } else {
+            result += roman[s[i] as keyof typeof roman];
+        }
+    }
+    return result;
+}
+//function to make a roman numeral from an integer
+// Leetcode problem 12
+// https://leetcode.com/problems/integer-to-roman/
+const intToRoman = (num: number): string => {
+    let result = '';
+    const roman = { 1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD', 500: 'D', 900: 'CM', 1000: 'M' };
+  
+    while (num > 0) {
+      if (num >= 1000) {
+        result += roman[1000];
+        num -= 1000;
+      } else if (num >= 900) {
+        result += roman[900];
+        num -= 900;
+      } else if (num >= 500) {
+        result += roman[500];
+        num -= 500;
+      } else if (num >= 400) {
+        result += roman[400];
+        num -= 400;
+      } else if (num >= 100) {
+        result += roman[100];
+        num -= 100;
+      } else if (num >= 90) {
+        result += roman[90];
+        num -= 90;
+      } else if (num >= 50) {
+        result += roman[50];
+        num -= 50;
+      } else if (num >= 40) {
+        result += roman[40];
+        num -= 40;
+      } else if (num >= 10) {
+        result += roman[10];
+        num -= 10;
+      } else if (num >= 9) {
+        result += roman[9];
+        num -= 9;
+      } else if (num >= 5) {
+        result += roman[5];
+        num -= 5;
+      } else if (num >= 4) {
+        result += roman[4];
+        num -= 4;
+      } else {
+        result += roman[1];
+        num -= 1;
+      }
+    }
+
+    return result;
+}
 
 
 // export all the functions
-export { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek};
+export { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman };

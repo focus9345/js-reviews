@@ -70,3 +70,17 @@ const array_1 = require("./array");
         (0, globals_1.expect)((0, array_1.dayOfTheWeek)(day, month, year)).toEqual("Sunday");
     });
 });
+// test the romanToInt function
+(0, globals_1.describe)('romanToInt module', () => {
+    (0, globals_1.test)('returns the number converted from roman numeral', () => {
+        let s = "LVIII";
+        (0, globals_1.expect)((0, array_1.romanToInt)(s)).toBe(58);
+    });
+});
+// test the intToRoman function
+(0, globals_1.describe)('intToRoman module', () => {
+    (0, globals_1.test)('returns the roman numeral converted from the number', () => {
+        let num = 58;
+        (0, globals_1.expect)((0, array_1.intToRoman)(num)).toBe("LVIII");
+    });
+});

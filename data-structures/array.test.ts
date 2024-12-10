@@ -7,7 +7,7 @@
  */
 
 import {describe, expect, test} from '@jest/globals';
-import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek } from './array';
+import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman } from './array';
 
 // test the reverseString function
 describe('reverseString module', () => {
@@ -74,5 +74,21 @@ describe('dayOfTheWeek module', () => {
         let month = 7;
         let year = 1999;
         expect(dayOfTheWeek(day, month, year)).toEqual("Sunday");
+    });
+});
+
+// test the romanToInt function
+describe('romanToInt module', () => { 
+    test('returns the number converted from roman numeral', () => {
+        let s = "LVIII";
+        expect(romanToInt(s)).toBe(58);
+    });
+});
+
+// test the intToRoman function
+describe('intToRoman module', () => {
+    test('returns the roman numeral converted from the number', () => {
+        let num = 58;
+        expect(intToRoman(num)).toBe("LVIII");
     });
 });

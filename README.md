@@ -8,6 +8,7 @@ You will need:
 
 ## Running files CLI
 Compile the TS file: output will run everything fair warning
+newer versions you will need ```npx tsc -v``` for example to run typescript
 ```
 tsc output.ts
 ```
