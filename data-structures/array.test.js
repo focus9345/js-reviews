@@ -84,3 +84,28 @@ const array_1 = require("./array");
         (0, globals_1.expect)((0, array_1.intToRoman)(num)).toBe("LVIII");
     });
 });
+// test the merge function
+(0, globals_1.describe)('merge module', () => {
+    (0, globals_1.test)('returns the merged array', () => {
+        let nums1 = [1, 2, 3, 0, 0, 0];
+        let m = 3;
+        let nums2 = [2, 5, 6];
+        let n = 3;
+        (0, array_1.merge)(nums1, m, nums2, n);
+        (0, globals_1.expect)(nums1).toEqual([1, 2, 2, 3, 5, 6]);
+    });
+});
+// test the majorityElement function
+(0, globals_1.describe)('majorityElement module', () => {
+    (0, globals_1.test)('returns the majority element in the array', () => {
+        let nums = [3, 2, 3];
+        (0, globals_1.expect)((0, array_1.majorityElement)(nums)).toBe(3);
+    });
+});
+// test the maxProfit function
+(0, globals_1.describe)('maxProfit module', () => {
+    (0, globals_1.test)('returns the maximum profit from the stock prices', () => {
+        let prices = [7, 1, 5, 3, 6, 4];
+        (0, globals_1.expect)((0, array_1.maxProfit)(prices)).toBe(7);
+    });
+});

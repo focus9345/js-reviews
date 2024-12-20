@@ -7,7 +7,7 @@
  */
 
 import {describe, expect, test} from '@jest/globals';
-import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman } from './array';
+import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman, merge, majorityElement, maxProfit } from './array';
 
 // test the reverseString function
 describe('reverseString module', () => {
@@ -90,5 +90,33 @@ describe('intToRoman module', () => {
     test('returns the roman numeral converted from the number', () => {
         let num = 58;
         expect(intToRoman(num)).toBe("LVIII");
+    });
+});
+
+// test the merge function
+describe('merge module', () => {
+    test('returns the merged array', () => {
+        let nums1 = [1,2,3,0,0,0];
+        let m = 3;
+        let nums2 = [2,5,6];
+        let n = 3;
+        merge(nums1, m, nums2, n);
+        expect(nums1).toEqual([1,2,2,3,5,6]);
+    });
+});
+
+// test the majorityElement function
+describe('majorityElement module', () => {
+    test('returns the majority element in the array', () => {
+        let nums = [3,2,3];
+        expect(majorityElement(nums)).toBe(3);
+    });
+});
+
+// test the maxProfit function
+describe('maxProfit module', () => {
+    test('returns the maximum profit from the stock prices', () => {
+        let prices = [7,1,5,3,6,4];
+        expect(maxProfit(prices)).toBe(7);
     });
 });

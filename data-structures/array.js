@@ -8,7 +8,7 @@
  * @exports reverseString
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.intToRoman = exports.romanToInt = exports.dayOfTheWeek = exports.checkPalindrome = exports.minStartValue = exports.maxConsecutiveOnes = exports.maxAverageSubArray = exports.kRadiusSubarrayAverage = exports.reverseString = void 0;
+exports.maxProfit = exports.majorityElement = exports.merge = exports.intToRoman = exports.romanToInt = exports.dayOfTheWeek = exports.checkPalindrome = exports.minStartValue = exports.maxConsecutiveOnes = exports.maxAverageSubArray = exports.kRadiusSubarrayAverage = exports.reverseString = void 0;
 // function to reverse a string in place
 // leetcode problem 344
 // https://leetcode.com/problems/reverse-string/
@@ -160,6 +160,7 @@ exports.romanToInt = romanToInt;
 //function to make a roman numeral from an integer
 // Leetcode problem 12
 // https://leetcode.com/problems/integer-to-roman/
+// Big O(n)
 const intToRoman = (num) => {
     let result = '';
     const roman = { 1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD', 500: 'D', 900: 'CM', 1000: 'M' };
@@ -220,3 +221,59 @@ const intToRoman = (num) => {
     return result;
 };
 exports.intToRoman = intToRoman;
+// Merge Sorted Array
+// Leetcode problem 88
+// https://leetcode.com/problems/merge-sorted-array/
+// Big O(n)
+const merge = (nums1, m, nums2, n) => {
+    let i = m - 1;
+    let j = n - 1;
+    let k = m + n - 1;
+    // merge the two arrays
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        }
+        else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+        k--;
+    }
+    // add the rest of the elements to the array
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
+};
+exports.merge = merge;
+// Majority Element
+// Leetcode problem 169
+// https://leetcode.com/problems/majority-element/
+const majorityElement = (nums) => {
+    let count = 0;
+    let candidate = 0;
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+        }
+        count += (num === candidate) ? 1 : -1;
+    }
+    return candidate;
+};
+exports.majorityElement = majorityElement;
+// Best Time to Buy and Sell Stock
+// Leetcode problem 121
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+const maxProfit = (prices) => {
+    let minPrice = Infinity;
+    let maxProfit = 0;
+    for (let price of prices) {
+        minPrice = Math.min(minPrice, price);
+        maxProfit = Math.max(maxProfit, price - minPrice);
+    }
+    return maxProfit;
+};
+exports.maxProfit = maxProfit;
