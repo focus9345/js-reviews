@@ -1,18 +1,36 @@
 
 // 
-prices = [7,1,5,3,6,4]
+let s = "["
 
-function maxProfit(prices) {
-    let maxProfit = 0;
-    let minPrice = prices[0];
+function validParentheses(s) {
 
-    for (let i = 0; i < prices.length; i++) {
-        if (prices[i] < minPrice) {
-            minPrice = prices[i];
+    if (s.length % 2 !== 0) {
+        return false;
+    }
+
+    let stack = [];
+    const map = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    }
+    for (let i = 0; i < s.length; i++) {
+        if (map[s[i]]) {
+            stack.push(map[s[i]]);
         } else {
-            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+            if (s[i] !== stack.pop()) {
+                return false;
+            }
         }
     }
-    return maxProfit;
+    for (let i = 0; i < stack.length; i++) {
+        if (s[i] !== stack.pop()) {
+            return false;
+        }
+    }
+    
+    return true;
     
 };
+
+console.log(validParentheses(s)) // true

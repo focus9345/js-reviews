@@ -7,7 +7,7 @@
  */
 
 import {describe, expect, test} from '@jest/globals';
-import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman, merge, majorityElement, maxProfit } from './array';
+import { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman, merge, majorityElement, maxProfit, isParenthesesValid } from './array';
 
 // test the reverseString function
 describe('reverseString module', () => {
@@ -118,5 +118,13 @@ describe('maxProfit module', () => {
     test('returns the maximum profit from the stock prices', () => {
         let prices = [7,1,5,3,6,4];
         expect(maxProfit(prices)).toBe(7);
+    });
+});
+
+// test the isParenthesesValid function
+describe('isParenthesesValid module', () => {
+    test('returns true if the parentheses are valid', () => {
+        let s = "()[]{}";
+        expect(isParenthesesValid(s)).toBe(true);
     });
 });

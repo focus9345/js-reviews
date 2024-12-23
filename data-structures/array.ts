@@ -254,7 +254,30 @@ const maxProfit = (prices: number[]): number => {
     return maxProfit;
 }
 
+// is Parentheses Valid
+// Leetcode problem 20
+// https://leetcode.com/problems/valid-parentheses/
+const isParenthesesValid = (s: string): boolean => {
+    const stack: string[] = [];
+    const pairs: { [key: string]: string } = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    };
+    for (let char of s) {
+        if (char === '(' || char === '[' || char === '{') {
+            stack.push(char);
+        } else {
+            if (stack.length === 0 || stack[stack.length - 1] !== pairs[char]) {
+                return false;
+            }
+            stack.pop();
+        }
+    }
+    return stack.length === 0;
+}
+
 
 
 // export all the functions
-export { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman, merge, majorityElement, maxProfit };
+export { reverseString, kRadiusSubarrayAverage, maxAverageSubArray, maxConsecutiveOnes, minStartValue, checkPalindrome, dayOfTheWeek, romanToInt, intToRoman, merge, majorityElement, maxProfit, isParenthesesValid };
